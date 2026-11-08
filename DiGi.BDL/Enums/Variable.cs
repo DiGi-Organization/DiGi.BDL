@@ -323,7 +323,9 @@ namespace DiGi.BDL.Enums
         [Classes.Category(nameof(Constants.Name.Category.K12)), Classes.Group(nameof(Constants.Name.Group.G643)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4152)), Description("number of residential buildings adapted to permanent residence, for which the Heat transfer coefficient Uc of doors within exterior partitions or within the partitions between heated and not heated rooms was given [buildings]")] number_of_residential_buildings_adapted_to_permanent_residence_for_which_Uc_of_doors_within_exterior_partitions_or_within_the_partitions_between_heated_and_not_heated_rooms_was_given = 1650025,
 
         /// <summary>average value of the primary energy index EP for residential buildings adapted to permanent residence [-]</summary>
+#pragma warning disable CA1069 // duplicate id kept as found (DiGi.Maintenance#19): alias of the misspelled average_value_of_EP_for_residental_buildings - verify against the BDL catalogue
         [Classes.Category(nameof(Constants.Name.Category.K12)), Classes.Group(nameof(Constants.Name.Group.G643)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4152)), Description("average value of the primary energy index EP for residential buildings adapted to permanent residence [-]")] average_value_of_EP_for_residential_buildings_adapted_to_permanent_residence = 1650006,
+#pragma warning restore CA1069
 
         /// <summary>average value of the heat transfer coefficient Uc of exterior walls with ti = or > 16 degrees Celsius for residential buildings adapted to permanent residence [W/(m2*K)]</summary>
         [Classes.Category(nameof(Constants.Name.Category.K12)), Classes.Group(nameof(Constants.Name.Group.G643)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4152)), Description("average value of the heat transfer coefficient Uc of exterior walls with ti = or > 16 degrees Celsius for residential buildings adapted to permanent residence [W/(m2*K)]")] average_value_of_Uc_of_exterior_walls_for_residential_buildings_adapted_to_permanent_residence = 1650028,
@@ -1124,7 +1126,9 @@ namespace DiGi.BDL.Enums
         [Classes.Category(nameof(Constants.Name.Category.K12)), Classes.Group(nameof(Constants.Name.Group.G643)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4152)), Classes.PKOB(1264), Description("average value of the heat transfer coefficient Uc of doors within exterior partitions or within the partitions between heated and not heated rooms for hospital or institutional care buildings [W/(m2*K)]")] average_value_of_Uc_of_doors_within_exterior_partitions_or_within_the_partitions_between_heated_and_not_heated_rooms_for_hospital_or_institutional_care_buildings = 1650473,
 
         /// <summary>total number of sports halls buildings completed [buildings]</summary>
+#pragma warning disable CA1069 // duplicate id kept as found (DiGi.Maintenance#19): same id as total_number_of_buildings_completed - verify against the BDL catalogue
         [Classes.Category(nameof(Constants.Name.Category.K12)), Classes.Group(nameof(Constants.Name.Group.G643)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4152)), Classes.PKOB(1265), Description("total number of sports halls buildings completed [buildings]")] total_number_of_sports_halls_buildings_completed = 1649970,
+#pragma warning restore CA1069
 
         /// <summary>number of sports halls buildings, for which the primary energy index EP indicator was given [buildings]</summary>
         [Classes.Category(nameof(Constants.Name.Category.K12)), Classes.Group(nameof(Constants.Name.Group.G643)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4152)), Classes.PKOB(1265), Description("number of sports halls buildings, for which the primary energy index EP indicator was given [buildings]")] number_of_sports_halls_buildings_for_which_EP_was_given = 1650482,

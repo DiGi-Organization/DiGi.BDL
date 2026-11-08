@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net.Http;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -30,7 +31,7 @@ namespace DiGi.BDL
 
             try
             {
-                string? url_Temp = string.Format("{0}&page-size={1}", url, pageSize);
+                string? url_Temp = string.Format(CultureInfo.CurrentCulture, "{0}&page-size={1}", url, pageSize);
 
                 do
                 {

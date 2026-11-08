@@ -7,6 +7,7 @@ namespace DiGi.BDL.Classes
     /// Specifies that a field belongs to a particular group.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "Public attribute named by the BDL concept and returned by Query.Group; renaming is a breaking change.")]
     public class Group : Attribute
     {
         /// <summary>

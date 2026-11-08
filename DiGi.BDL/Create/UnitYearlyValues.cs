@@ -1,6 +1,7 @@
 using DiGi.BDL.Classes;
 using DiGi.BDL.Enums;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -21,16 +22,16 @@ namespace DiGi.BDL
         /// <returns>An instance of <see cref="UnitYearlyValues"/> containing the retrieved data, or null if inputs are invalid or retrieval fails.</returns>
         public static async Task<UnitYearlyValues?> UnitYearlyValues(string? unitId, IEnumerable<Variable>? variables, IEnumerable<int>? years, int pageSize = 100, int variablesMaxCount = 50)
         {
-            if (string.IsNullOrWhiteSpace(unitId) || variables == null || variables.Count() == 0 || years == null || years.Count() == 0)
+            if (string.IsNullOrWhiteSpace(unitId) || variables == null || !variables.Any() || years == null || !years.Any())
             {
                 return null;
             }
 
-            string url = string.Format("{0}/data/by-unit/{1}?format=json", Constants.Url.EndPoint, unitId);
+            string url = string.Format(CultureInfo.CurrentCulture, "{0}/data/by-unit/{1}?format=json", Constants.Url.EndPoint, unitId);
 
             foreach (int year in years)
             {
-                url += string.Format("&year={0}", year);
+                url += string.Format(CultureInfo.CurrentCulture, "&year={0}", year);
             }
 
             UnitYearlyValues? result = null;
@@ -47,7 +48,7 @@ namespace DiGi.BDL
 
                 foreach (Variable variable in variables_Range)
                 {
-                    url_Temp += string.Format("&var-id={0}", (int)variable);
+                    url_Temp += string.Format(CultureInfo.CurrentCulture, "&var-id={0}", (int)variable);
                 }
 
                 List<JsonObject>? jsonObjects = await JsonObjects(url_Temp, pageSize);

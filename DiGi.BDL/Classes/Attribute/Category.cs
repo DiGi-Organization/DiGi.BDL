@@ -7,6 +7,7 @@ namespace DiGi.BDL.Classes
     /// Attribute used to categorize a field with a specific identifier and name.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "Public attribute named by the BDL concept and returned by Query.Category; renaming is a breaking change.")]
     public class Category : Attribute
     {
         /// <summary>

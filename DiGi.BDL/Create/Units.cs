@@ -1,5 +1,6 @@
 using DiGi.BDL.Classes;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace DiGi.BDL
         /// <returns>A task that represents the asynchronous operation. The task result contains a list of <see cref="Unit"/> objects, or null if no data is returned.</returns>
         public static async Task<List<Unit>?> Units(int pageSize = 100, string? clientId = null)
         {
-            string url = string.Format("{0}/{1}?format=json", Constants.Url.EndPoint, Constants.Url.Id.Units);
+            string url = string.Format(CultureInfo.CurrentCulture, "{0}/{1}?format=json", Constants.Url.EndPoint, Constants.Url.Id.Units);
 
             List<JsonObject>? jsonObjects = await JsonObjects(url, pageSize, clientId);
             if (jsonObjects == null)

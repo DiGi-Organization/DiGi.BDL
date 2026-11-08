@@ -7,6 +7,7 @@ namespace DiGi.BDL.Classes
     /// Attribute used to define a set of identifiers for a field.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1710:Identifiers should have correct suffix", Justification = "Public attribute named by the PKOB classification and returned by Query.PKOB; renaming is a breaking change.")]
     public class PKOB : Attribute
     {
         /// <summary>
