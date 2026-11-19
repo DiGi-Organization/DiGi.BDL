@@ -54,6 +54,19 @@ public const string K3 = "POPULATION";
 #### Field Value
 [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
+<a name='DiGi.BDL.Constants.Name.Category.K31'></a>
+
+## Name\.Category\.K31 Field
+
+The constant value for the National Censuses category\.
+
+```csharp
+public const string K31 = "NATIONAL CENSUSES";
+```
+
+#### Field Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
 <a name='DiGi.BDL.Constants.Name.Group'></a>
 
 ## Name\.Group Class
@@ -101,6 +114,19 @@ The constant value for the Energy Performance of Buildings group\.
 
 ```csharp
 public const string G643 = "ENERGY PERFORMANCE OF BUILDINGS";
+```
+
+#### Field Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+<a name='DiGi.BDL.Constants.Name.Group.G645'></a>
+
+## Name\.Group\.G645 Field
+
+The constant value for the Census 2021 \- Dwellings group\.
+
+```csharp
+public const string G645 = "CENSUS 2021 - DWELLINGS";
 ```
 
 #### Field Value
@@ -179,6 +205,19 @@ The constant value for the energy performance of buildings subgroup\.
 
 ```csharp
 public const string P4152 = "Energy performance of buildings";
+```
+
+#### Field Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+<a name='DiGi.BDL.Constants.Name.SubGroup.P4386'></a>
+
+## Name\.SubGroup\.P4386 Field
+
+The constant value for the inhabited dwellings by period of construction of a building subgroup \(National Census 2021\)\.
+
+```csharp
+public const string P4386 = "Inhabited dwellings by period of construction of a building";
 ```
 
 #### Field Value

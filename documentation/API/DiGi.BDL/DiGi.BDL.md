@@ -292,3 +292,24 @@ The enumeration value to evaluate\.
 #### Returns
 [SubGroup](DiGi.BDL.Classes.md#DiGi.BDL.Classes.SubGroup 'DiGi\.BDL\.Classes\.SubGroup')  
 The [SubGroup\(this Enum\)](DiGi.BDL.md#DiGi.BDL.Query.SubGroup(thisSystem.Enum) 'DiGi\.BDL\.Query\.SubGroup\(this System\.Enum\)') attribute if it exists; otherwise, null\.
+
+<a name='DiGi.BDL.Query.YearBuiltRange(thisSystem.Enum)'></a>
+
+## Query\.YearBuiltRange\(this Enum\) Method
+
+Retrieves the construction period a census variable counts \(DiGi\-Organization/DiGi\.BDL\#1\)\.
+
+```csharp
+public static DiGi.BDL.Classes.YearBuiltRange? YearBuiltRange(this System.Enum? @enum);
+```
+#### Parameters
+
+<a name='DiGi.BDL.Query.YearBuiltRange(thisSystem.Enum).enum'></a>
+
+`enum` [System\.Enum](https://learn.microsoft.com/en-us/dotnet/api/system.enum 'System\.Enum')
+
+The enumeration value to evaluate\.
+
+#### Returns
+[YearBuiltRange](DiGi.BDL.Classes.md#DiGi.BDL.Classes.YearBuiltRange 'DiGi\.BDL\.Classes\.YearBuiltRange')  
+The YearBuiltRange attribute if found; otherwise, null \- also for a total or any variable that is not a count by construction period\.

@@ -704,6 +704,88 @@ public string? unitName { get; set; }
 #### Property Value
 [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
+<a name='DiGi.BDL.Classes.YearBuiltRange'></a>
+
+## YearBuiltRange Class
+
+Attribute giving the construction period a census variable counts, as the years it was published with \(DiGi\-Organization/DiGi\.BDL\#1\)\.
+
+Both bounds are inclusive. A period open towards the past, such as "before 1918", has no first year.
+
+```csharp
+public class YearBuiltRange : System.Attribute
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [System\.Attribute](https://learn.microsoft.com/en-us/dotnet/api/system.attribute 'System\.Attribute') → YearBuiltRange
+### Constructors
+
+<a name='DiGi.BDL.Classes.YearBuiltRange.YearBuiltRange(short)'></a>
+
+## YearBuiltRange\(short\) Constructor
+
+Initializes a new instance of the [YearBuiltRange](DiGi.BDL.Classes.md#DiGi.BDL.Classes.YearBuiltRange 'DiGi\.BDL\.Classes\.YearBuiltRange') class for a period open towards the past\.
+
+```csharp
+public YearBuiltRange(short lastYear);
+```
+#### Parameters
+
+<a name='DiGi.BDL.Classes.YearBuiltRange.YearBuiltRange(short).lastYear'></a>
+
+`lastYear` [System\.Int16](https://learn.microsoft.com/en-us/dotnet/api/system.int16 'System\.Int16')
+
+The last year of the period, inclusive\.
+
+<a name='DiGi.BDL.Classes.YearBuiltRange.YearBuiltRange(short,short)'></a>
+
+## YearBuiltRange\(short, short\) Constructor
+
+Initializes a new instance of the [YearBuiltRange](DiGi.BDL.Classes.md#DiGi.BDL.Classes.YearBuiltRange 'DiGi\.BDL\.Classes\.YearBuiltRange') class for a closed period\.
+
+```csharp
+public YearBuiltRange(short firstYear, short lastYear);
+```
+#### Parameters
+
+<a name='DiGi.BDL.Classes.YearBuiltRange.YearBuiltRange(short,short).firstYear'></a>
+
+`firstYear` [System\.Int16](https://learn.microsoft.com/en-us/dotnet/api/system.int16 'System\.Int16')
+
+The first year of the period, inclusive\.
+
+<a name='DiGi.BDL.Classes.YearBuiltRange.YearBuiltRange(short,short).lastYear'></a>
+
+`lastYear` [System\.Int16](https://learn.microsoft.com/en-us/dotnet/api/system.int16 'System\.Int16')
+
+The last year of the period, inclusive\.
+### Properties
+
+<a name='DiGi.BDL.Classes.YearBuiltRange.FirstYear'></a>
+
+## YearBuiltRange\.FirstYear Property
+
+Gets the first year of the period, or null when the period is open towards the past\.
+
+```csharp
+public System.Nullable<short> FirstYear { get; }
+```
+
+#### Property Value
+[System\.Nullable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')[System\.Int16](https://learn.microsoft.com/en-us/dotnet/api/system.int16 'System\.Int16')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')
+
+<a name='DiGi.BDL.Classes.YearBuiltRange.LastYear'></a>
+
+## YearBuiltRange\.LastYear Property
+
+Gets the last year of the period\.
+
+```csharp
+public short LastYear { get; }
+```
+
+#### Property Value
+[System\.Int16](https://learn.microsoft.com/en-us/dotnet/api/system.int16 'System\.Int16')
+
 <a name='DiGi.BDL.Classes.YearlyValue'></a>
 
 ## YearlyValue Class

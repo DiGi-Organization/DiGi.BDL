@@ -1360,5 +1360,35 @@ namespace DiGi.BDL.Enums
 
         /// <summary>average value of the heat transfer coefficient Uc of doors within exterior partitions or within the partitions between heated and not heated rooms for other non-residential buildings not elsewhere classified [W/(m2*K)]</summary>
         [Classes.Category(nameof(Constants.Name.Category.K12)), Classes.Group(nameof(Constants.Name.Group.G643)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4152)), Classes.PKOB(1274), Description("average value of the heat transfer coefficient Uc of doors within exterior partitions or within the partitions between heated and not heated rooms for other non-residential buildings not elsewhere classified [W/(m2*K)]")] average_value_of_Uc_of_doors_within_exterior_partitions_or_within_the_partitions_between_heated_and_not_heated_rooms_for_other_non_residential_buildings_not_elsewhere_classified = 1650599,
+
+        /// <summary>inhabited dwellings, total (National Census 2021) [dwellings]</summary>
+        [Classes.Category(nameof(Constants.Name.Category.K31)), Classes.Group(nameof(Constants.Name.Group.G645)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4386)), Description("inhabited dwellings, total (National Census 2021) [dwellings]")] inhabited_dwellings_total_census_2021 = 1723518,
+
+        /// <summary>inhabited dwellings in buildings built before 1918 (National Census 2021) [dwellings]</summary>
+        [Classes.Category(nameof(Constants.Name.Category.K31)), Classes.Group(nameof(Constants.Name.Group.G645)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4386)), Classes.YearBuiltRange(1917), Description("inhabited dwellings in buildings built before 1918 (National Census 2021) [dwellings]")] inhabited_dwellings_built_before_1918_census_2021 = 1723521,
+
+        /// <summary>inhabited dwellings in buildings built 1918-1944 (National Census 2021) [dwellings]</summary>
+        [Classes.Category(nameof(Constants.Name.Category.K31)), Classes.Group(nameof(Constants.Name.Group.G645)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4386)), Classes.YearBuiltRange(1918, 1944), Description("inhabited dwellings in buildings built 1918-1944 (National Census 2021) [dwellings]")] inhabited_dwellings_built_1918_1944_census_2021 = 1723524,
+
+        /// <summary>inhabited dwellings in buildings built 1945-1970 (National Census 2021) [dwellings]</summary>
+        [Classes.Category(nameof(Constants.Name.Category.K31)), Classes.Group(nameof(Constants.Name.Group.G645)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4386)), Classes.YearBuiltRange(1945, 1970), Description("inhabited dwellings in buildings built 1945-1970 (National Census 2021) [dwellings]")] inhabited_dwellings_built_1945_1970_census_2021 = 1723527,
+
+        /// <summary>inhabited dwellings in buildings built 1971-1978 (National Census 2021) [dwellings]</summary>
+        [Classes.Category(nameof(Constants.Name.Category.K31)), Classes.Group(nameof(Constants.Name.Group.G645)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4386)), Classes.YearBuiltRange(1971, 1978), Description("inhabited dwellings in buildings built 1971-1978 (National Census 2021) [dwellings]")] inhabited_dwellings_built_1971_1978_census_2021 = 1723530,
+
+        /// <summary>inhabited dwellings in buildings built 1979-1988 (National Census 2021) [dwellings]</summary>
+        [Classes.Category(nameof(Constants.Name.Category.K31)), Classes.Group(nameof(Constants.Name.Group.G645)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4386)), Classes.YearBuiltRange(1979, 1988), Description("inhabited dwellings in buildings built 1979-1988 (National Census 2021) [dwellings]")] inhabited_dwellings_built_1979_1988_census_2021 = 1723533,
+
+        /// <summary>inhabited dwellings in buildings built 1989-2002 (National Census 2021) [dwellings]</summary>
+        [Classes.Category(nameof(Constants.Name.Category.K31)), Classes.Group(nameof(Constants.Name.Group.G645)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4386)), Classes.YearBuiltRange(1989, 2002), Description("inhabited dwellings in buildings built 1989-2002 (National Census 2021) [dwellings]")] inhabited_dwellings_built_1989_2002_census_2021 = 1723536,
+
+        /// <summary>inhabited dwellings in buildings built 2003-2011 (National Census 2021) [dwellings]</summary>
+        [Classes.Category(nameof(Constants.Name.Category.K31)), Classes.Group(nameof(Constants.Name.Group.G645)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4386)), Classes.YearBuiltRange(2003, 2011), Description("inhabited dwellings in buildings built 2003-2011 (National Census 2021) [dwellings]")] inhabited_dwellings_built_2003_2011_census_2021 = 1723539,
+
+        /// <summary>inhabited dwellings in buildings built 2012-2016 (National Census 2021) [dwellings]</summary>
+        [Classes.Category(nameof(Constants.Name.Category.K31)), Classes.Group(nameof(Constants.Name.Group.G645)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4386)), Classes.YearBuiltRange(2012, 2016), Description("inhabited dwellings in buildings built 2012-2016 (National Census 2021) [dwellings]")] inhabited_dwellings_built_2012_2016_census_2021 = 1723542,
+
+        /// <summary>inhabited dwellings in buildings built 2017-2021, including buildings under construction (National Census 2021) [dwellings]</summary>
+        [Classes.Category(nameof(Constants.Name.Category.K31)), Classes.Group(nameof(Constants.Name.Group.G645)), Classes.SubGroup(nameof(Constants.Name.SubGroup.P4386)), Classes.YearBuiltRange(2017, 2021), Description("inhabited dwellings in buildings built 2017-2021, including buildings under construction (National Census 2021) [dwellings]")] inhabited_dwellings_built_2017_2021_census_2021 = 1723545,
     }
 }

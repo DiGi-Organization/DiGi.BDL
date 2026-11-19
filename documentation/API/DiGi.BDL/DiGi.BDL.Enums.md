@@ -2713,3 +2713,63 @@ average value of the heat transfer coefficient Uc of windows \(except for roof w
 `average_value_of_Uc_of_doors_within_exterior_partitions_or_within_the_partitions_between_heated_and_not_heated_rooms_for_other_non_residential_buildings_not_elsewhere_classified` 1650599
 
 average value of the heat transfer coefficient Uc of doors within exterior partitions or within the partitions between heated and not heated rooms for other non\-residential buildings not elsewhere classified \[W/\(m2\*K\)\]
+
+<a name='DiGi.BDL.Enums.Variable.inhabited_dwellings_total_census_2021'></a>
+
+`inhabited_dwellings_total_census_2021` 1723518
+
+inhabited dwellings, total \(National Census 2021\) \[dwellings\]
+
+<a name='DiGi.BDL.Enums.Variable.inhabited_dwellings_built_before_1918_census_2021'></a>
+
+`inhabited_dwellings_built_before_1918_census_2021` 1723521
+
+inhabited dwellings in buildings built before 1918 \(National Census 2021\) \[dwellings\]
+
+<a name='DiGi.BDL.Enums.Variable.inhabited_dwellings_built_1918_1944_census_2021'></a>
+
+`inhabited_dwellings_built_1918_1944_census_2021` 1723524
+
+inhabited dwellings in buildings built 1918\-1944 \(National Census 2021\) \[dwellings\]
+
+<a name='DiGi.BDL.Enums.Variable.inhabited_dwellings_built_1945_1970_census_2021'></a>
+
+`inhabited_dwellings_built_1945_1970_census_2021` 1723527
+
+inhabited dwellings in buildings built 1945\-1970 \(National Census 2021\) \[dwellings\]
+
+<a name='DiGi.BDL.Enums.Variable.inhabited_dwellings_built_1971_1978_census_2021'></a>
+
+`inhabited_dwellings_built_1971_1978_census_2021` 1723530
+
+inhabited dwellings in buildings built 1971\-1978 \(National Census 2021\) \[dwellings\]
+
+<a name='DiGi.BDL.Enums.Variable.inhabited_dwellings_built_1979_1988_census_2021'></a>
+
+`inhabited_dwellings_built_1979_1988_census_2021` 1723533
+
+inhabited dwellings in buildings built 1979\-1988 \(National Census 2021\) \[dwellings\]
+
+<a name='DiGi.BDL.Enums.Variable.inhabited_dwellings_built_1989_2002_census_2021'></a>
+
+`inhabited_dwellings_built_1989_2002_census_2021` 1723536
+
+inhabited dwellings in buildings built 1989\-2002 \(National Census 2021\) \[dwellings\]
+
+<a name='DiGi.BDL.Enums.Variable.inhabited_dwellings_built_2003_2011_census_2021'></a>
+
+`inhabited_dwellings_built_2003_2011_census_2021` 1723539
+
+inhabited dwellings in buildings built 2003\-2011 \(National Census 2021\) \[dwellings\]
+
+<a name='DiGi.BDL.Enums.Variable.inhabited_dwellings_built_2012_2016_census_2021'></a>
+
+`inhabited_dwellings_built_2012_2016_census_2021` 1723542
+
+inhabited dwellings in buildings built 2012\-2016 \(National Census 2021\) \[dwellings\]
+
+<a name='DiGi.BDL.Enums.Variable.inhabited_dwellings_built_2017_2021_census_2021'></a>
+
+`inhabited_dwellings_built_2017_2021_census_2021` 1723545
+
+inhabited dwellings in buildings built 2017\-2021, including buildings under construction \(National Census 2021\) \[dwellings\]

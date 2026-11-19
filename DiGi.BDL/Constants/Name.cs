@@ -19,6 +19,11 @@ namespace DiGi.BDL.Constants
             /// The constant value for the Industry and Construction category.
             /// </summary>
             public const string K12 = "INDUSTRY AND CONSTRUCTION";
+
+            /// <summary>
+            /// The constant value for the National Censuses category.
+            /// </summary>
+            public const string K31 = "NATIONAL CENSUSES";
         }
 
         /// <summary>
@@ -45,6 +50,11 @@ namespace DiGi.BDL.Constants
             /// The constant value for the Energy Performance of Buildings group.
             /// </summary>
             public const string G643 = "ENERGY PERFORMANCE OF BUILDINGS";
+
+            /// <summary>
+            /// The constant value for the Census 2021 - Dwellings group.
+            /// </summary>
+            public const string G645 = "CENSUS 2021 - DWELLINGS";
         }
 
         /// <summary>
@@ -71,6 +81,11 @@ namespace DiGi.BDL.Constants
             /// The constant value for the energy performance of buildings subgroup.
             /// </summary>
             public const string P4152 = "Energy performance of buildings";
+
+            /// <summary>
+            /// The constant value for the inhabited dwellings by period of construction of a building subgroup (National Census 2021).
+            /// </summary>
+            public const string P4386 = "Inhabited dwellings by period of construction of a building";
         }
     }
 }
