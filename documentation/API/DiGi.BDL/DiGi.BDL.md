@@ -14,35 +14,49 @@ public static class Create
 Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → Create
 ### Methods
 
-<a name='DiGi.BDL.Create.JsonObjects(string,int,string)'></a>
+<a name='DiGi.BDL.Create.JsonObjects(string,int,string,int,int)'></a>
 
-## Create\.JsonObjects\(string, int, string\) Method
+## Create\.JsonObjects\(string, int, string, int, int\) Method
 
 Asynchronously retrieves a list of [System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject') instances from the specified URL,
 automatically following pagination links until all data is collected\.
 
+A page refused for exceeding a rate limit (HTTP 429) is requested again after the wait its `Retry-After` header gives (BDL writes it as "`913 sek`"), up to [retryCount](DiGi.BDL.md#DiGi.BDL.Create.JsonObjects(string,int,string,int,int).retryCount 'DiGi\.BDL\.Create\.JsonObjects\(string, int, string, int, int\)\.retryCount') times, when that wait is at most [retryMaxWaitSeconds](DiGi.BDL.md#DiGi.BDL.Create.JsonObjects(string,int,string,int,int).retryMaxWaitSeconds 'DiGi\.BDL\.Create\.JsonObjects\(string, int, string, int, int\)\.retryMaxWaitSeconds'); a longer wait - a 12-hour or 7-day quota - fails at once (DiGi-Organization/DiGi.GIS.PostgreSQL#149). Any other failure, a security block of the client's address included (an HTML page with HTTP 500), fails at once.
+
 ```csharp
-public static System.Threading.Tasks.Task<System.Collections.Generic.List<System.Text.Json.Nodes.JsonObject>?> JsonObjects(string? url, int pageSize=100, string? clientId=null);
+public static System.Threading.Tasks.Task<System.Collections.Generic.List<System.Text.Json.Nodes.JsonObject>?> JsonObjects(string? url, int pageSize=100, string? clientId=null, int retryCount=3, int retryMaxWaitSeconds=60);
 ```
 #### Parameters
 
-<a name='DiGi.BDL.Create.JsonObjects(string,int,string).url'></a>
+<a name='DiGi.BDL.Create.JsonObjects(string,int,string,int,int).url'></a>
 
 `url` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 The starting URL to fetch JSON objects from\.
 
-<a name='DiGi.BDL.Create.JsonObjects(string,int,string).pageSize'></a>
+<a name='DiGi.BDL.Create.JsonObjects(string,int,string,int,int).pageSize'></a>
 
 `pageSize` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
 
 The number of records to request per page\. Defaults to 100\.
 
-<a name='DiGi.BDL.Create.JsonObjects(string,int,string).clientId'></a>
+<a name='DiGi.BDL.Create.JsonObjects(string,int,string,int,int).clientId'></a>
 
 `clientId` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
-Optional BDL API client identifier \(API key\) passed in the X\-ClientId header\.
+Optional BDL API client identifier \(API key\) passed in the X\-ClientId header\. Without it the anonymous limits apply\.
+
+<a name='DiGi.BDL.Create.JsonObjects(string,int,string,int,int).retryCount'></a>
+
+`retryCount` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
+The number of times a page refused for a rate limit is requested again\.
+
+<a name='DiGi.BDL.Create.JsonObjects(string,int,string,int,int).retryMaxWaitSeconds'></a>
+
+`retryMaxWaitSeconds` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
+The longest wait, in seconds, a retry waits for\.
 
 #### Returns
 [System\.Threading\.Tasks\.Task&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1 'System\.Threading\.Tasks\.Task\`1')[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1 'System\.Threading\.Tasks\.Task\`1')  
@@ -75,50 +89,130 @@ Optional BDL API client identifier \(API key\) passed in the X\-ClientId header\
 [System\.Threading\.Tasks\.Task&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1 'System\.Threading\.Tasks\.Task\`1')[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[Unit](DiGi.BDL.Classes.md#DiGi.BDL.Classes.Unit 'DiGi\.BDL\.Classes\.Unit')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1 'System\.Threading\.Tasks\.Task\`1')  
 A task that represents the asynchronous operation\. The task result contains a list of [Unit](DiGi.BDL.Classes.md#DiGi.BDL.Classes.Unit 'DiGi\.BDL\.Classes\.Unit') objects, or null if no data is returned\.
 
-<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int)'></a>
+<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int,string)'></a>
 
-## Create\.UnitYearlyValues\(string, IEnumerable\<Variable\>, IEnumerable\<int\>, int, int\) Method
+## Create\.UnitYearlyValues\(string, IEnumerable\<Variable\>, IEnumerable\<int\>, int, int, string\) Method
 
 Retrieves yearly values for a specific unit based on the provided variables and years\.
 
 ```csharp
-public static System.Threading.Tasks.Task<DiGi.BDL.Classes.UnitYearlyValues?> UnitYearlyValues(string? unitId, System.Collections.Generic.IEnumerable<DiGi.BDL.Enums.Variable>? variables, System.Collections.Generic.IEnumerable<int>? years, int pageSize=100, int variablesMaxCount=50);
+public static System.Threading.Tasks.Task<DiGi.BDL.Classes.UnitYearlyValues?> UnitYearlyValues(string? unitId, System.Collections.Generic.IEnumerable<DiGi.BDL.Enums.Variable>? variables, System.Collections.Generic.IEnumerable<int>? years, int pageSize=100, int variablesMaxCount=50, string? clientId=null);
 ```
 #### Parameters
 
-<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int).unitId'></a>
+<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int,string).unitId'></a>
 
 `unitId` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 The unique identifier of the unit\.
 
-<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int).variables'></a>
+<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int,string).variables'></a>
 
 `variables` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[Variable](DiGi.BDL.Enums.md#DiGi.BDL.Enums.Variable 'DiGi\.BDL\.Enums\.Variable')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
 
 A collection of variables to retrieve data for\.
 
-<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int).years'></a>
+<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int,string).years'></a>
 
 `years` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
 
 A collection of years for which to retrieve data\.
 
-<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int).pageSize'></a>
+<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int,string).pageSize'></a>
 
 `pageSize` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
 
 The number of results per page\.
 
-<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int).variablesMaxCount'></a>
+<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int,string).variablesMaxCount'></a>
 
 `variablesMaxCount` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
 
 The maximum number of variables to process in a single request batch\.
 
+<a name='DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int,string).clientId'></a>
+
+`clientId` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The BDL API client identifier sent in the X\-ClientId header, or null for the anonymous limits \(DiGi\-Organization/DiGi\.GIS\.PostgreSQL\#149\)\.
+
 #### Returns
 [System\.Threading\.Tasks\.Task&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1 'System\.Threading\.Tasks\.Task\`1')[UnitYearlyValues](DiGi.BDL.Classes.md#DiGi.BDL.Classes.UnitYearlyValues 'DiGi\.BDL\.Classes\.UnitYearlyValues')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1 'System\.Threading\.Tasks\.Task\`1')  
-An instance of [UnitYearlyValues\(string, IEnumerable&lt;Variable&gt;, IEnumerable&lt;int&gt;, int, int\)](DiGi.BDL.md#DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int) 'DiGi\.BDL\.Create\.UnitYearlyValues\(string, System\.Collections\.Generic\.IEnumerable\<DiGi\.BDL\.Enums\.Variable\>, System\.Collections\.Generic\.IEnumerable\<int\>, int, int\)') containing the retrieved data, or null if inputs are invalid or retrieval fails\.
+An instance of [UnitYearlyValues\(string, IEnumerable&lt;Variable&gt;, IEnumerable&lt;int&gt;, int, int, string\)](DiGi.BDL.md#DiGi.BDL.Create.UnitYearlyValues(string,System.Collections.Generic.IEnumerable_DiGi.BDL.Enums.Variable_,System.Collections.Generic.IEnumerable_int_,int,int,string) 'DiGi\.BDL\.Create\.UnitYearlyValues\(string, System\.Collections\.Generic\.IEnumerable\<DiGi\.BDL\.Enums\.Variable\>, System\.Collections\.Generic\.IEnumerable\<int\>, int, int, string\)') containing the retrieved data, or null if inputs are invalid or retrieval fails\.
+
+<a name='DiGi.BDL.Create.UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable,int,System.Collections.Generic.IEnumerable_int_,int,string)'></a>
+
+## Create\.UnitYearlyValuesDictionary\(Variable, int, IEnumerable\<int\>, int, string\) Method
+
+Retrieves the values of one variable for every territorial unit of one level, keyed by unit id, from the BDL `data/by-variable` endpoint \(DiGi\-Organization/DiGi\.GIS\.PostgreSQL\#149\)\.
+
+One request per page of [pageSize](DiGi.BDL.md#DiGi.BDL.Create.UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable,int,System.Collections.Generic.IEnumerable_int_,int,string).pageSize 'DiGi\.BDL\.Create\.UnitYearlyValuesDictionary\(DiGi\.BDL\.Enums\.Variable, int, System\.Collections\.Generic\.IEnumerable\<int\>, int, string\)\.pageSize') units - about 40 for the gmina level - instead of one per unit, so a variable missing from every unit is fetched within the BDL limits. A level the variable is not published at answers no units.
+
+```csharp
+public static System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string,DiGi.BDL.Classes.UnitYearlyValues>?> UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable variable, int unitLevel, System.Collections.Generic.IEnumerable<int>? years, int pageSize=100, string? clientId=null);
+```
+#### Parameters
+
+<a name='DiGi.BDL.Create.UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable,int,System.Collections.Generic.IEnumerable_int_,int,string).variable'></a>
+
+`variable` [Variable](DiGi.BDL.Enums.md#DiGi.BDL.Enums.Variable 'DiGi\.BDL\.Enums\.Variable')
+
+The variable to retrieve\.
+
+<a name='DiGi.BDL.Create.UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable,int,System.Collections.Generic.IEnumerable_int_,int,string).unitLevel'></a>
+
+`unitLevel` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
+The BDL unit level, 0 \(country\) to 6 \(gmina\)\.
+
+<a name='DiGi.BDL.Create.UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable,int,System.Collections.Generic.IEnumerable_int_,int,string).years'></a>
+
+`years` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+
+The years to retrieve\.
+
+<a name='DiGi.BDL.Create.UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable,int,System.Collections.Generic.IEnumerable_int_,int,string).pageSize'></a>
+
+`pageSize` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
+The number of units per page\.
+
+<a name='DiGi.BDL.Create.UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable,int,System.Collections.Generic.IEnumerable_int_,int,string).clientId'></a>
+
+`clientId` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The BDL API client identifier sent in the X\-ClientId header, or null for the anonymous limits\.
+
+#### Returns
+[System\.Threading\.Tasks\.Task&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1 'System\.Threading\.Tasks\.Task\`1')[System\.Collections\.Generic\.Dictionary&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')[,](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[UnitYearlyValues](DiGi.BDL.Classes.md#DiGi.BDL.Classes.UnitYearlyValues 'DiGi\.BDL\.Classes\.UnitYearlyValues')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1 'System\.Threading\.Tasks\.Task\`1')  
+The values of the variable keyed by unit id, each as a [UnitYearlyValues](DiGi.BDL.Classes.md#DiGi.BDL.Classes.UnitYearlyValues 'DiGi\.BDL\.Classes\.UnitYearlyValues') holding that one variable; null when the inputs are invalid or a request failed\.
+
+<a name='DiGi.BDL.Create.UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable,System.Collections.Generic.IEnumerable_System.Text.Json.Nodes.JsonObject_)'></a>
+
+## Create\.UnitYearlyValuesDictionary\(Variable, IEnumerable\<JsonObject\>\) Method
+
+Converts the pages of the BDL `data/by-variable` endpoint for one variable into its values keyed by unit id \(DiGi\-Organization/DiGi\.GIS\.PostgreSQL\#149\)\.
+
+```csharp
+public static System.Collections.Generic.Dictionary<string,DiGi.BDL.Classes.UnitYearlyValues> UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable variable, System.Collections.Generic.IEnumerable<System.Text.Json.Nodes.JsonObject>? jsonObjects);
+```
+#### Parameters
+
+<a name='DiGi.BDL.Create.UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable,System.Collections.Generic.IEnumerable_System.Text.Json.Nodes.JsonObject_).variable'></a>
+
+`variable` [Variable](DiGi.BDL.Enums.md#DiGi.BDL.Enums.Variable 'DiGi\.BDL\.Enums\.Variable')
+
+The variable the pages hold\.
+
+<a name='DiGi.BDL.Create.UnitYearlyValuesDictionary(DiGi.BDL.Enums.Variable,System.Collections.Generic.IEnumerable_System.Text.Json.Nodes.JsonObject_).jsonObjects'></a>
+
+`jsonObjects` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[System\.Text\.Json\.Nodes\.JsonObject](https://learn.microsoft.com/en-us/dotnet/api/system.text.json.nodes.jsonobject 'System\.Text\.Json\.Nodes\.JsonObject')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
+
+The pages, as [JsonObjects\(string, int, string, int, int\)](DiGi.BDL.md#DiGi.BDL.Create.JsonObjects(string,int,string,int,int) 'DiGi\.BDL\.Create\.JsonObjects\(string, int, string, int, int\)') returns them\.
+
+#### Returns
+[System\.Collections\.Generic\.Dictionary&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')[,](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')[UnitYearlyValues](DiGi.BDL.Classes.md#DiGi.BDL.Classes.UnitYearlyValues 'DiGi\.BDL\.Classes\.UnitYearlyValues')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2 'System\.Collections\.Generic\.Dictionary\`2')  
+One [UnitYearlyValues](DiGi.BDL.Classes.md#DiGi.BDL.Classes.UnitYearlyValues 'DiGi\.BDL\.Classes\.UnitYearlyValues') per unit with an id, holding the one variable; a unit spread over two pages has its values joined\. Empty when no page holds a unit\.
 
 <a name='DiGi.BDL.Query'></a>
 

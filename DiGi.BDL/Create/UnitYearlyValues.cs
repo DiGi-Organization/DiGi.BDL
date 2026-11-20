@@ -19,8 +19,9 @@ namespace DiGi.BDL
         /// <param name="years">A collection of years for which to retrieve data.</param>
         /// <param name="pageSize">The number of results per page.</param>
         /// <param name="variablesMaxCount">The maximum number of variables to process in a single request batch.</param>
+        /// <param name="clientId">The BDL API client identifier sent in the X-ClientId header, or null for the anonymous limits (DiGi-Organization/DiGi.GIS.PostgreSQL#149).</param>
         /// <returns>An instance of <see cref="UnitYearlyValues"/> containing the retrieved data, or null if inputs are invalid or retrieval fails.</returns>
-        public static async Task<UnitYearlyValues?> UnitYearlyValues(string? unitId, IEnumerable<Variable>? variables, IEnumerable<int>? years, int pageSize = 100, int variablesMaxCount = 50)
+        public static async Task<UnitYearlyValues?> UnitYearlyValues(string? unitId, IEnumerable<Variable>? variables, IEnumerable<int>? years, int pageSize = 100, int variablesMaxCount = 50, string? clientId = null)
         {
             if (string.IsNullOrWhiteSpace(unitId) || variables == null || !variables.Any() || years == null || !years.Any())
             {
@@ -51,7 +52,7 @@ namespace DiGi.BDL
                     url_Temp += string.Format(CultureInfo.CurrentCulture, "&var-id={0}", (int)variable);
                 }
 
-                List<JsonObject>? jsonObjects = await JsonObjects(url_Temp, pageSize);
+                List<JsonObject>? jsonObjects = await JsonObjects(url_Temp, pageSize, clientId);
                 if (jsonObjects == null)
                 {
                     return null;

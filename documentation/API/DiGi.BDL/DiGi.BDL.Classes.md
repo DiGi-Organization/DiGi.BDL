@@ -354,7 +354,8 @@ Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system
 
 Derived  
 ↳ [UnitsResponse](DiGi.BDL.Classes.md#DiGi.BDL.Classes.UnitsResponse 'DiGi\.BDL\.Classes\.UnitsResponse')  
-↳ [UnitYearlyValuesResponse](DiGi.BDL.Classes.md#DiGi.BDL.Classes.UnitYearlyValuesResponse 'DiGi\.BDL\.Classes\.UnitYearlyValuesResponse')
+↳ [UnitYearlyValuesResponse](DiGi.BDL.Classes.md#DiGi.BDL.Classes.UnitYearlyValuesResponse 'DiGi\.BDL\.Classes\.UnitYearlyValuesResponse')  
+↳ [VariableValuesResponse](DiGi.BDL.Classes.md#DiGi.BDL.Classes.VariableValuesResponse 'DiGi\.BDL\.Classes\.VariableValuesResponse')
 
 Implements [DiGi\.BDL\.Interfaces\.IResponseObject](https://learn.microsoft.com/en-us/dotnet/api/digi.bdl.interfaces.iresponseobject 'DiGi\.BDL\.Interfaces\.IResponseObject'), [DiGi\.BDL\.Interfaces\.IBDLObject](https://learn.microsoft.com/en-us/dotnet/api/digi.bdl.interfaces.ibdlobject 'DiGi\.BDL\.Interfaces\.IBDLObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject')
 ### Properties
@@ -703,6 +704,99 @@ public string? unitName { get; set; }
 
 #### Property Value
 [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+<a name='DiGi.BDL.Classes.VariableUnitValues'></a>
+
+## VariableUnitValues Class
+
+Represents the values of one variable for one territorial unit, as a result of the BDL `data/by-variable` endpoint returns it \(DiGi\-Organization/DiGi\.GIS\.PostgreSQL\#149\)\.
+
+```csharp
+public class VariableUnitValues : DiGi.BDL.Interfaces.IResultObject, DiGi.BDL.Interfaces.IBDLObject, DiGi.Core.Interfaces.IObject
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → VariableUnitValues
+
+Implements [DiGi\.BDL\.Interfaces\.IResultObject](https://learn.microsoft.com/en-us/dotnet/api/digi.bdl.interfaces.iresultobject 'DiGi\.BDL\.Interfaces\.IResultObject'), [DiGi\.BDL\.Interfaces\.IBDLObject](https://learn.microsoft.com/en-us/dotnet/api/digi.bdl.interfaces.ibdlobject 'DiGi\.BDL\.Interfaces\.IBDLObject'), [DiGi\.Core\.Interfaces\.IObject](https://learn.microsoft.com/en-us/dotnet/api/digi.core.interfaces.iobject 'DiGi\.Core\.Interfaces\.IObject')
+### Properties
+
+<a name='DiGi.BDL.Classes.VariableUnitValues.id'></a>
+
+## VariableUnitValues\.id Property
+
+Gets or sets the identifier of the territorial unit\.
+
+```csharp
+public string? id { get; set; }
+```
+
+#### Property Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+<a name='DiGi.BDL.Classes.VariableUnitValues.name'></a>
+
+## VariableUnitValues\.name Property
+
+Gets or sets the name of the territorial unit\.
+
+```csharp
+public string? name { get; set; }
+```
+
+#### Property Value
+[System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+<a name='DiGi.BDL.Classes.VariableUnitValues.values'></a>
+
+## VariableUnitValues\.values Property
+
+Gets or sets the yearly values of the variable for the unit\.
+
+```csharp
+public System.Collections.Generic.List<DiGi.BDL.Classes.YearlyValue>? values { get; set; }
+```
+
+#### Property Value
+[System\.Collections\.Generic\.List&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')[YearlyValue](DiGi.BDL.Classes.md#DiGi.BDL.Classes.YearlyValue 'DiGi\.BDL\.Classes\.YearlyValue')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1 'System\.Collections\.Generic\.List\`1')
+
+<a name='DiGi.BDL.Classes.VariableValuesResponse'></a>
+
+## VariableValuesResponse Class
+
+Represents one page of the BDL `data/by-variable` endpoint: the values of one variable for every territorial unit of one level \(DiGi\-Organization/DiGi\.GIS\.PostgreSQL\#149\)\.
+
+```csharp
+public class VariableValuesResponse : DiGi.BDL.Classes.Response<DiGi.BDL.Classes.VariableUnitValues>
+```
+
+Inheritance [System\.Object](https://learn.microsoft.com/en-us/dotnet/api/system.object 'System\.Object') → [DiGi\.BDL\.Classes\.Response&lt;](DiGi.BDL.Classes.md#DiGi.BDL.Classes.Response_TResultObject_ 'DiGi\.BDL\.Classes\.Response\<TResultObject\>')[VariableUnitValues](DiGi.BDL.Classes.md#DiGi.BDL.Classes.VariableUnitValues 'DiGi\.BDL\.Classes\.VariableUnitValues')[&gt;](DiGi.BDL.Classes.md#DiGi.BDL.Classes.Response_TResultObject_ 'DiGi\.BDL\.Classes\.Response\<TResultObject\>') → VariableValuesResponse
+### Properties
+
+<a name='DiGi.BDL.Classes.VariableValuesResponse.measureUnitId'></a>
+
+## VariableValuesResponse\.measureUnitId Property
+
+Gets or sets the identifier of the measure unit of the variable\.
+
+```csharp
+public int measureUnitId { get; set; }
+```
+
+#### Property Value
+[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
+<a name='DiGi.BDL.Classes.VariableValuesResponse.variableId'></a>
+
+## VariableValuesResponse\.variableId Property
+
+Gets or sets the identifier of the variable\.
+
+```csharp
+public int variableId { get; set; }
+```
+
+#### Property Value
+[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
 
 <a name='DiGi.BDL.Classes.YearBuiltRange'></a>
 
